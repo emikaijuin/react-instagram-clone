@@ -6,14 +6,14 @@ import LoadingIndicator from '../components/LoadingIndicator'
 
 class UserImage extends Component {
   state = {
-    image: '',
+    images: '',
     isLoading: true
   }
   componentDidMount() {
     axios.get(`https://insta-oct18.nextacademy.com/api/v1/images?userId=${this.props.id}`).then(
       result => {
        this.setState({
-         image: result.data[0],
+         images: result.data,
          isLoading: false
        })
       }
@@ -22,12 +22,20 @@ class UserImage extends Component {
 
   returnImage() {
     return (
-      <Image 
-        src={this.state.image} 
-        width="50%"
-        height="auto"  
-        placeholderColor = "#ffecd9"
-      />
+      <ul>
+        {
+          this.state.images.map(src => (
+            <li>
+              <Image 
+                src={src} 
+                width="50%"
+                height="auto"  
+                placeholderColor = "#ffecd9"
+              />            
+            </li>   
+          ))
+        }
+      </ul>
     )
   }
 
