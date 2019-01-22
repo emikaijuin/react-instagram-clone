@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import './App.css';
+import '../App.css';
 import axios from 'axios';
 import Image from 'react-graceful-image';
-import LoadingIndicator from './LoadingIndicator'
+import LoadingIndicator from '../components/LoadingIndicator'
 
 class UserImage extends Component {
   state = {

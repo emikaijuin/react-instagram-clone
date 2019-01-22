@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import './App.css';
+import '../App.css';
 import axios from 'axios'
-import UserImages from './UserImages'
-import LoadingIndicator from './LoadingIndicator'
+import UserImages from '../containers/UserImages'
+import LoadingIndicator from '../components/LoadingIndicator'
 
 
 class HomePage extends Component {
