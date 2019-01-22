@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios'
 import UserImages from './UserImages'
+import LoadingIndicator from './LoadingIndicator'
 
 
 class HomePage extends Component {
@@ -50,7 +51,10 @@ class HomePage extends Component {
     return (
       <div>
         <h1>Home Pages</h1>
-        { this.state.isLoading ? this.returnLoading() : this.returnUsers() }
+        { this.state.isLoading ? 
+          <LoadingIndicator src="loading.gif" /> : 
+          this.returnUsers() 
+        }
       </div>
     )
   }

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
 import Image from 'react-graceful-image';
+import LoadingIndicator from './LoadingIndicator'
 
 class UserImage extends Component {
   state = {
@@ -25,20 +26,18 @@ class UserImage extends Component {
         src={this.state.image} 
         width="50%"
         height="auto"  
+        placeholderColor = "#ffecd9"
       />
-    )
-  }
-
-  returnLoading() {
-    return (
-      <img src="loading2.gif"></img>
     )
   }
 
   render () {
     return (
       <div>
-       { this.state.isLoading ? this.returnLoading() : this.returnImage() }
+       { this.state.isLoading ? 
+        <LoadingIndicator src = "loading2.gif" /> : 
+        this.returnImage() 
+      }
       </div>
 
     )
