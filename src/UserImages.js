@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import axios from 'axios'
+import axios from 'axios';
+import Image from 'react-graceful-image';
 
 class UserImage extends Component {
   state = {
@@ -20,7 +21,11 @@ class UserImage extends Component {
 
   returnImage() {
     return (
-      <img src={this.state.image}></img>
+      <Image 
+        src={this.state.image} 
+        width="50%"
+        height="auto"  
+      />
     )
   }
 
