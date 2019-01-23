@@ -49,8 +49,7 @@ class HomePage extends Component {
   render() {
 
     return (
-      <div>
-        <h1>Home Pages</h1>
+      <div class="page-container">
         { this.state.isLoading ? 
           <LoadingIndicator src="loading.gif" /> : 
           this.returnUsers() 

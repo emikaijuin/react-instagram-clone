@@ -15,8 +15,7 @@ class UserProfilePage extends React.Component {
   render() {
 
     return (
-      <div>
-        <h1>User Profile Page</h1>
+      <div class="page-container">
         <div>
           { 
             this.state.isLoading ? 
