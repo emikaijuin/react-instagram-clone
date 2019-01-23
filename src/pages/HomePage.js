@@ -12,7 +12,7 @@ class HomePage extends Component {
   }
 
   componentDidMount() {
-    axios.get('https://insta-oct18.nextacademy.com/api/v1/users')
+    axios.get('https://insta.nextacademy.com/api/v1/users')
     .then( result => {
         this.setState({
           users: result.data,
