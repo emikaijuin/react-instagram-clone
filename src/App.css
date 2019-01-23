@@ -57,3 +57,86 @@
 .login-modal > form > div {
   padding: 10px;
 }
+
+body {
+  background-color: #fafafa !important;
+}
+#main-container {
+  padding-top: 75px;
+}
+
+#nav {
+  background-color: #fff;
+  height: 5%;
+  border-bottom: 1px solid gainsboro;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+  margin-bottom: 15px;
+}
+
+#nav > div {
+  margin: auto;
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+.navbar-icon {
+  font-size: 1.5rem;
+  margin: 0 10px 0 10px;
+}
+.navbar-icon:visited {
+  color: black;
+}
+
+.search-input {
+  border-radius: 3px;
+  border: 1px solid gainsboro;
+}
+
+li {
+  list-style-type: none;
+}
+
+ul {
+  padding-left: 0;
+}
+
+/* User Profile Page */
+.page-container {
+  width: 40%;
+  margin: auto;
+}
+
+.image-container {
+  list-style-type: none;
+}
+
+.card {
+  margin: 25px 0;
+}
+
+.card-header, .card-footer {
+  background-color: #fff !important;
+}
+
+.card-header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.card-header-user-profile-pic-icon {
+  border-radius: 100%;
+  width: 30px;
+  margin: 10px;
+}
+
+.card-header-image-location {
+  font-size: 0.75rem;
+}
+
+.image {
+  width: 100%;
+}
