@@ -10,7 +10,7 @@ class UserImage extends Component {
     isLoading: true
   }
   componentDidMount() {
-    axios.get(`https://insta-oct18.nextacademy.com/api/v1/images?userId=${this.props.id}`).then(
+    axios.get(`https://insta.nextacademy.com/api/v1/images?userId=${this.props.id}`).then(
       result => {
        this.setState({
          images: result.data,
