@@ -25,13 +25,32 @@ class UserImage extends Component {
       <ul>
         {
           this.state.images.map(src => (
-            <li>
+            <li class="card">
+            <div class="card-header">
+              <div>
+                <img src="https://pbs.twimg.com/profile_images/700252955430117376/C0s5XPPa.png" class="card-header-user-profile-pic-icon"/>
+              </div>
+              <div>
+                <div className="card-header-handle">
+                  <strong>
+                    @thisisafakehandle
+                  </strong>
+                </div>
+                <div className="card-header-image-location">Anywhere, World</div>
+              </div>
+            </div>
+            <div class="card-image">
               <Image 
                 src={src} 
                 width="50%"
                 height="auto"  
-                placeholderColor = "#ffecd9"
-              />            
+                className = "image"
+                />            
+            </div>
+            <div class="card-footer">
+              <div>A bunch of fake stuff</div>
+              <div>A bunch of fake stuff</div>
+            </div>
             </li>   
           ))
         }
