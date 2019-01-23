@@ -6,16 +6,29 @@ import LoginModal from './LoginModal'
 
 class Navbar extends Component {
   state= {
-    displayLogin: false
+    displayLogin: false,
+    isLoggedIn: !!localStorage.getItem('next_auth_token')
   }
 
   handleLoginClick = () => {
     this.setState({displayLogin: true})
   }
 
-  handleLoginModalUnmount = () => {
+  unmountLoginModal = () => {
     this.setState({displayLogin: false})
   }
+
+  handleLogoutClick = () => {
+    localStorage.removeItem('next_auth_token')
+    this.setState({isLoggedIn: false})
+  }
+
+  signInUser = auth_token => {
+    localStorage.setItem('next_auth_token', auth_token)
+    this.setState({ isLoggedIn: true})
+  }
+
+
 
   render() {
 
@@ -41,13 +54,26 @@ class Navbar extends Component {
 
           <div >
             <a href="#" className="navbar-icon" ><FontAwesomeIcon icon="compass" /></a>
-            <a href="#" className="navbar-icon" onClick={this.handleLoginClick}><FontAwesomeIcon icon="user" /></a>
+            <a href="#" className="navbar-icon" ><FontAwesomeIcon icon="user" /></a>
             <a href="#" className="navbar-icon" ><FontAwesomeIcon icon="heart" /></a>
+            { this.state.isLoggedIn ? 
+                <FontAwesomeIcon 
+                  className="navbar-icon" 
+                  icon="sign-out-alt" 
+                  onClick={this.handleLogoutClick}
+                /> 
+              : 
+                <FontAwesomeIcon 
+                  className="navbar-icon" 
+                  icon="sign-in-alt" 
+                  onClick={this.handleLoginClick}
+                />
+            }
           </div>
 
         </div>
 
-        {this.state.displayLogin ? <LoginModal unmountMe={this.handleLoginModalUnmount} /> : null}
+        {this.state.displayLogin ? <LoginModal unmountMe={this.unmountLoginModal} signIn={this.signInUser}/> : null}
       </nav>
     )
   }

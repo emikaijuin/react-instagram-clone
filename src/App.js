@@ -6,11 +6,11 @@ import UserProfilePage from './pages/UserProfilePage'
 import Navbar from './containers/Navbar'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
-import { faUser, faCompass, faHeart } from '@fortawesome/free-solid-svg-icons'
+import { faUser, faCompass, faHeart, faSignOutAlt, faSignInAlt } from '@fortawesome/free-solid-svg-icons'
 
 import './App.css'
 
-library.add(fab, faUser, faCompass, faHeart)
+library.add(fab, faUser, faCompass, faHeart, faSignOutAlt, faSignInAlt)
 
 class App extends React.Component {
   render() {
