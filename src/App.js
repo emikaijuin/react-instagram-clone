@@ -6,17 +6,21 @@ import UserProfilePage from './pages/UserProfilePage'
 import Navbar from './containers/Navbar'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
+import { faUser, faCompass, faHeart } from '@fortawesome/free-solid-svg-icons'
+
 import './App.css'
 
-library.add(fab)
+library.add(fab, faUser, faCompass, faHeart)
 
 class App extends React.Component {
   render() {
     return (
       <div>
         <Navbar />
-        <Route exact path="/" component={HomePage} />
-        <Route path="/users/:id" component={UserProfilePage} />
+        <div id="main-container">
+          <Route exact path="/" component={HomePage} />
+          <Route path="/users/:id" component={UserProfilePage} />
+        </div>
       </div>
     )
   }
