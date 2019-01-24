@@ -6,10 +6,10 @@ const SquareImagePreview = (props) => (
       {
         maxWidth: "293px",
         maxHeight: "293px",
-        width: "33vw",
-        height: "33vw",
+        width: "13vw",
+        height: "13vw",
         overflow: "hidden",
-        margin: "1%"
+        margin: "0.5vw"
       }
     }
   >
@@ -18,8 +18,8 @@ const SquareImagePreview = (props) => (
       className="square-image"
       style = {
         { 
-          width: "15vw",
-          minHeight: "15vw"
+          width: "13vw",
+          minHeight: "13vw"
         }
       }
     />
