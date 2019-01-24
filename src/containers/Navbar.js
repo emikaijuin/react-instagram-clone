@@ -35,7 +35,7 @@ class Navbar extends Component {
     return (
       
       <nav className="navbar navbar-expand-lg navbar-light" id="nav">
-        <div>
+        <div id="nav-container">
         
           <div>
             <Link to="/" className="navbar-brand">
@@ -48,27 +48,27 @@ class Navbar extends Component {
         
           <div>
             <form>
-            <input class="search-input" type="search" placeholder="Search" ></input>
+            <input className="form-control" type="search" placeholder="Search" ></input>
             </form>
           </div>
 
           <div >
             <a href="#" className="navbar-icon" ><FontAwesomeIcon icon="compass" /></a>
-            <a href="#" className="navbar-icon" ><FontAwesomeIcon icon="user" /></a>
+            <Link to="/profile" className="navbar-icon"><FontAwesomeIcon icon="user" /></Link>
             <a href="#" className="navbar-icon" ><FontAwesomeIcon icon="heart" /></a>
-            { this.state.isLoggedIn ? 
-                <FontAwesomeIcon 
-                  className="navbar-icon" 
-                  icon="sign-out-alt" 
-                  onClick={this.handleLogoutClick}
-                /> 
-              : 
-                <FontAwesomeIcon 
-                  className="navbar-icon" 
-                  icon="sign-in-alt" 
-                  onClick={this.handleLoginClick}
-                />
-            }
+            <a href="#" className="navbar-icon">
+              { this.state.isLoggedIn ? 
+                  <FontAwesomeIcon 
+                    icon="sign-out-alt" 
+                    onClick={this.handleLogoutClick}
+                  /> 
+                : 
+                  <FontAwesomeIcon 
+                    icon="sign-in-alt" 
+                    onClick={this.handleLoginClick}
+                  />
+              }
+            </a>
           </div>
 
         </div>

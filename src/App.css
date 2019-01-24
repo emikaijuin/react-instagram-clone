@@ -1,6 +1,6 @@
 .logo {
-  font-family: 'Pacifico';
-  font-size: 1.5rem;
+  font-family: 'Grand Hotel';
+  font-size: 2rem;
   color: black;
 }
 
@@ -46,28 +46,40 @@
 }
 
 .login-modal {
+  width: 25%;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: whitesmoke;
-  padding: 5%;
-  border: 1px solid black;
+  background-color:rgba(245,245,245,0.98);
+  padding: 2%;
+  border: 1px solid gainsboro;
+  border-radius: 15px;
 }
 .login-modal > form > div {
   padding: 10px;
+}
+
+.close-modal {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+}
+
+.close-modal:hover {
+  cursor: pointer;
 }
 
 body {
   background-color: #fafafa !important;
 }
 #main-container {
-  padding-top: 75px;
+  padding-top: 100px;
 }
 
 #nav {
   background-color: #fff;
-  height: 5%;
+  height: 70px;
   border-bottom: 1px solid gainsboro;
   position: fixed;
   width: 100%;
@@ -75,9 +87,9 @@ body {
   margin-bottom: 15px;
 }
 
-#nav > div {
+#nav-container {
+  width: 40%;
   margin: auto;
-  width: 50%;
   display: flex;
   justify-content: space-between;
   align-content: center;
@@ -88,11 +100,6 @@ body {
 }
 .navbar-icon:visited {
   color: black;
-}
-
-.search-input {
-  border-radius: 3px;
-  border: 1px solid gainsboro;
 }
 
 li {
@@ -129,7 +136,7 @@ ul {
 
 .card-header-user-profile-pic-icon {
   border-radius: 100%;
-  width: 30px;
+  width: 50px;
   margin: 10px;
 }
 

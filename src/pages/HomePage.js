@@ -31,8 +31,7 @@ class HomePage extends Component {
         {
           this.state.users.map(user =>
             <li>
-              <UserImages id={user.id} />
-              {user.id}: {user.username}
+              <UserImages id={user.id} username={user.username} profilePicture={user.profileImage}/>
             </li>
           )
         }
@@ -51,7 +50,7 @@ class HomePage extends Component {
     return (
       <div class="page-container">
         { this.state.isLoading ? 
-          <LoadingIndicator src="loading.gif" /> : 
+          <LoadingIndicator src="loader.gif" /> : 
           this.returnUsers() 
         }
       </div>

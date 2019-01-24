@@ -3,8 +3,9 @@ import '../App.css';
 import axios from 'axios';
 import Image from 'react-graceful-image';
 import LoadingIndicator from '../components/LoadingIndicator'
+import { Link } from 'react-router-dom'
 
-class UserImage extends Component {
+class UserImages extends Component {
   state = {
     images: '',
     isLoading: true
@@ -28,12 +29,17 @@ class UserImage extends Component {
             <li class="card">
             <div class="card-header">
               <div>
-                <img src="https://pbs.twimg.com/profile_images/700252955430117376/C0s5XPPa.png" class="card-header-user-profile-pic-icon"/>
+                <Link to={`users/${this.props.id}`}>
+                  <img 
+                    src={this.props.profilePicture}
+                    className="card-header-user-profile-pic-icon"
+                  />
+                </Link>
               </div>
               <div>
                 <div className="card-header-handle">
                   <strong>
-                    @thisisafakehandle
+                    {`@${this.props.username}`}
                   </strong>
                 </div>
                 <div className="card-header-image-location">Anywhere, World</div>
@@ -62,7 +68,7 @@ class UserImage extends Component {
     return (
       <div>
        { this.state.isLoading ? 
-        <LoadingIndicator src = "loading2.gif" /> : 
+        <LoadingIndicator src = "loader.gif" style={{maxWidth: "50px"}}/> : 
         this.returnImage() 
       }
       </div>
@@ -71,4 +77,4 @@ class UserImage extends Component {
   }
 }
 
-export default UserImage
+export default UserImages

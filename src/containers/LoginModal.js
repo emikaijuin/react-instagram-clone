@@ -49,20 +49,22 @@ class LoginModal extends Component {
     return (
       <div className="login-modal" >
         <form onSubmit={ this.handleSubmit }>
-          <div><label>Email</label></div>
-          <div>
+          <div className="form-group">
+            <label>Email</label>
             <input 
               type= "text" 
               name= "user[email]" 
+              className="form-control"
               value= { this.state.email }
               onChange= { this.handleEmailInput }
             />
           </div>
-          <div><label>Password</label></div>
-          <div>
+          <div className="form-group">
+            <label>Password</label>
             <input 
               type="password" 
               name="user[password]"
+              className="form-control"
               value = { this.state.password }
               onChange = { this.handlePasswordInput }
             />
@@ -70,12 +72,13 @@ class LoginModal extends Component {
           <div>
             <input 
               type ="submit" 
+              className="btn btn-outline-secondary"
               disabled = { !this.isSubmittable() }
             />
 
           </div>
         </form>
-        <div onClick={this.props.unmountMe}>Close</div>
+        <div onClick={this.props.unmountMe} className="close-modal"><strong>X</strong></div>
       </div>
     )
   }
