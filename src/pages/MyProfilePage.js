@@ -33,6 +33,7 @@ class MyProfilePage extends Component {
         }  
       >
         <ProfileHeader profilePicSrc="https://instagram.fkul4-1.fna.fbcdn.net/vp/56ea526c2ccdc2b7b36c98e819b66317/5CC78D63/t51.2885-19/s320x320/37303952_280807742674704_5136530686991138816_n.jpg?_nc_ht=instagram.fkul4-1.fna.fbcdn.net"/>
+        
         <hr/>
         <div
           style = {
