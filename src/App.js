@@ -7,11 +7,19 @@ import Navbar from './containers/Navbar'
 import MyProfilePage from './pages/MyProfilePage'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
-import { faUser, faCompass, faHeart, faSignOutAlt, faSignInAlt, faCog } from '@fortawesome/free-solid-svg-icons'
+import { 
+    faUser, 
+    faCompass, 
+    faHeart, 
+    faSignOutAlt, 
+    faSignInAlt, 
+    faCog,
+    faUserPlus
+  } from '@fortawesome/free-solid-svg-icons'
 
 import './App.css'
 
-library.add(fab, faUser, faCompass, faHeart, faSignOutAlt, faSignInAlt, faCog)
+library.add(fab, faUser, faCompass, faHeart, faSignOutAlt, faSignInAlt, faCog, faUserPlus)
 
 class App extends React.Component {
   render() {

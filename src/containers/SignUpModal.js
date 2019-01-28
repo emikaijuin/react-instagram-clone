@@ -1,33 +1,43 @@
-import React, {Component} from "react";
-import axios from 'axios';
+import React, { Component } from "react";
+import axios from "axios";
 
-class LoginModal extends Component {
-
+class SignUpModal extends Component {
   state = {
     email: '',
-    password: ''
+    password: '',
+    username: ''
   }
 
   handleSubmit = event => {
     event.preventDefault()
     if (this.isSubmittable()) {
-      axios.post('https://insta.nextacademy.com/api/v1/login', {
-        email: this.state.email,
-        password: this.state.password
+      axios({ 
+        method: 'post',
+        url: 'https://insta.nextacademy.com/api/v1/users/new',
+        data: {
+          username: this.state.username,
+          email: this.state.email,
+          password: this.state.password
+        }
+      }).then(result => {
+        this.props.signIn(result.data.auth_token)
+        this.props.unmountMe()
+      }).catch(error => {
+        console.log(error)
+        alert('There was an issue signing you up, please try again.')
       })
-        .then(result => {
-          this.props.signIn(result.data.auth_token)
-          this.props.unmountMe()
-        }).catch(error => {
-          console.log(error)
-          alert("Invalid credentials, please try again.")
-        })
     } else {
-      alert('Not a valid email, please try again.')
+      alert('Not valid email or password, please try again.')
     }
   }
 
-  isSubmittable = () => this.isValidEmail() && this.state.password ? true : false
+  isSubmittable = () => (
+    this.isValidEmail() && this.state.password ? true : false
+  )
+
+  handleUsernameInput = event => {
+    this.setState({ username: event.target.value })
+  }
 
   handleEmailInput = event => {
     this.setState({ email: event.target.value })
@@ -49,6 +59,16 @@ class LoginModal extends Component {
     return (
       <div className="user-modal" >
         <form onSubmit={ this.handleSubmit }>
+          <div className="form-group">
+            <label>Username</label>
+            <input 
+              type= "text" 
+              name= "user[username]" 
+              className="form-control"
+              value= { this.state.username }
+              onChange= { this.handleUsernameInput }
+            />
+          </div>
           <div className="form-group">
             <label>Email</label>
             <input 
@@ -75,7 +95,6 @@ class LoginModal extends Component {
               className="btn btn-outline-secondary"
               disabled = { !this.isSubmittable() }
             />
-
           </div>
         </form>
         <div onClick={this.props.unmountMe} className="close-modal"><strong>X</strong></div>
@@ -84,4 +103,4 @@ class LoginModal extends Component {
   }
 }
 
-export default LoginModal
+export default SignUpModal

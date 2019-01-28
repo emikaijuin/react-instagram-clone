@@ -1,13 +1,19 @@
 import React, { Component } from "react";
-import { Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import LoginModal from './LoginModal'
+import SignUpModal from './SignUpModal'
 
 
 class Navbar extends Component {
   state= {
     displayLogin: false,
+    displaySignUp: false,
     isLoggedIn: !!localStorage.getItem('next_auth_token')
+  }
+  
+  handleSignUpClick = () => {
+    this.setState({displaySignUp: true})
   }
 
   handleLoginClick = () => {
@@ -16,6 +22,9 @@ class Navbar extends Component {
 
   unmountLoginModal = () => {
     this.setState({displayLogin: false})
+  }
+  unmountSignUpModal = () => {
+    this.setState({displaySignUp: false})
   }
 
   handleLogoutClick = () => {
@@ -27,6 +36,7 @@ class Navbar extends Component {
     localStorage.setItem('next_auth_token', auth_token)
     this.setState({ isLoggedIn: true})
   }
+
 
 
 
@@ -63,10 +73,20 @@ class Navbar extends Component {
                     onClick={this.handleLogoutClick}
                   /> 
                 : 
-                  <FontAwesomeIcon 
-                    icon="sign-in-alt" 
-                    onClick={this.handleLoginClick}
-                  />
+                  <span className="navbar-icon">
+                    <FontAwesomeIcon 
+                      icon="sign-in-alt" 
+                      onClick={this.handleLoginClick}
+                      className="navbar-icon"
+                      title="Log In"
+                    />
+                    <FontAwesomeIcon 
+                      icon="user-plus"
+                      onClick={this.handleSignUpClick}
+                      className="navbar-icon"
+                      title="Sign Up"
+                    />
+                  </span>
               }
             </a>
           </div>
@@ -74,6 +94,7 @@ class Navbar extends Component {
         </div>
 
         {this.state.displayLogin ? <LoginModal unmountMe={this.unmountLoginModal} signIn={this.signInUser}/> : null}
+        {this.state.displaySignUp ? <SignUpModal unmountMe={this.unmountSignUpModal} signIn={this.signInUser}/> : null}
       </nav>
     )
   }
