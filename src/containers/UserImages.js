@@ -7,14 +7,19 @@ import { Link } from 'react-router-dom'
 
 class UserImages extends Component {
   state = {
-    images: '',
     isLoading: true
   }
   componentDidMount() {
-    axios.get(`https://insta.nextacademy.com/api/v1/images?userId=${this.props.id}`).then(
+    axios.get(`http://localhost:5000/api/v1/users/${this.props.username}`,
+      { 
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('next_auth_token')}`
+        }
+      }
+    ).then(
       result => {
        this.setState({
-         images: result.data,
+         ...result.data,
          isLoading: false
        })
       }
