@@ -28,7 +28,7 @@ class App extends React.Component {
         <Navbar />
         <div id="main-container">
           <Route exact path="/" component={HomePage} />
-          <Route path="/users/:id" component={UserProfilePage} />
+          <Route path="/users/:username" component={UserProfilePage} />
           <Route exact path="/profile" component={MyProfilePage} />
         </div>
       </div>
