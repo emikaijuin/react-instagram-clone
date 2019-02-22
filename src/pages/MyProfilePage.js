@@ -4,18 +4,14 @@ import SquareImagePreview from "../components/SquareImagePreview";
 import ProfileHeader from "../components/ProfileHeader"
 
 class MyProfilePage extends Component {
-  state = {
-    images: []
-  }
-
   componentDidMount() {
-    axios.get('https://insta.nextacademy.com/api/v1/images/me', {
+    axios.get('http://localhost:5000/api/v1/users/emikaijuin', {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('next_auth_token')}`
       }
     })
     .then(result => {
-      this.setState({ images: result.data })
+      this.setState({ ...result.data })
     }).catch(error => {
       console.log(error)
     })
