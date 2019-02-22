@@ -11,12 +11,15 @@ class LoginModal extends Component {
   handleSubmit = event => {
     event.preventDefault()
     if (this.isSubmittable()) {
-      axios.post('https://insta.nextacademy.com/api/v1/login', {
+      axios.post('http://localhost:5000/api/v1/sessions/new', {
         email: this.state.email,
         password: this.state.password
-      })
-        .then(result => {
-          this.props.signIn(result.data.auth_token)
+      }, {
+        headers: {
+        'Content-Type': 'application/json'
+        }
+      }).then(result => {
+          this.props.signIn(result.data.access_token, result.data.current_user)
           this.props.unmountMe()
         }).catch(error => {
           console.log(error)
