@@ -29,15 +29,26 @@ class Navbar extends Component {
 
   handleLogoutClick = () => {
     localStorage.removeItem('next_auth_token')
+    localStorage.removeItem('current_user')
     this.setState({isLoggedIn: false})
   }
 
-  signInUser = auth_token => {
+  signInUser = (auth_token, current_user) => {
     localStorage.setItem('next_auth_token', auth_token)
+    localStorage.setItem('current_user', current_user)
     this.setState({ isLoggedIn: true})
   }
 
-
+  showLinkToProfile = () => {
+    if (localStorage.getItem('current_user')) {
+      return ( 
+      <Link 
+        to={`/users/${localStorage.getItem('current_user')}`}   className="navbar-icon">
+        <FontAwesomeIcon icon="user" />
+      </Link>
+      )
+    }
+  }
 
 
   render() {
@@ -64,7 +75,7 @@ class Navbar extends Component {
 
           <div >
             <a href="#" className="navbar-icon" ><FontAwesomeIcon icon="compass" /></a>
-            <Link to="/profile" className="navbar-icon"><FontAwesomeIcon icon="user" /></Link>
+            { this.showLinkToProfile() }
             <a href="#" className="navbar-icon" ><FontAwesomeIcon icon="heart" /></a>
             <a href="#" className="navbar-icon">
               { this.state.isLoggedIn ? 
